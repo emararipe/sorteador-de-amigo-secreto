@@ -1,8 +1,9 @@
-import React from 'react'
-
 function Formulario() {
   return (
-    <div>Formulario</div>
+    <form>
+      <input type="text" placeholder="Insira os nomes dos participantes" />
+      <button disabled>Adicionar</button>
+    </form>
   )
 }
 
