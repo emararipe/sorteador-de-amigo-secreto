@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import Formulario from "./Formulario";
 
-// Jest
 
 test('participantes não podem ser adicionados se o input estiver vazio, ', () => {
 
