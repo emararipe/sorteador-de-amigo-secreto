@@ -1,5 +1,5 @@
-import { useSetRecoilState, useRecoilValue } from "recoil"
-import { erroState, listaParticipantesState } from "../atom"
+import { useSetRecoilState, useRecoilValue } from 'recoil'
+import { erroState, listaParticipantesState } from '../atom'
 
 export const useAdicionarParticipante = () => {
   const setLista = useSetRecoilState(listaParticipantesState)
@@ -7,8 +7,11 @@ export const useAdicionarParticipante = () => {
   const setErro = useSetRecoilState(erroState)
 
   return (nomeDoParticipante: string) => {
-    if (lista.includes(nomeDoParticipante)){
+    if (lista.includes(nomeDoParticipante)) {
       setErro('Esse nome já consta na lista. Nomes duplicados não são permitidos.')
+      setTimeout(() => {
+        setErro('')
+      }, 5000)
       return
     }
     return setLista(listaAtual => [...listaAtual, nomeDoParticipante])

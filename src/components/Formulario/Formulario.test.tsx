@@ -1,7 +1,8 @@
 import { RecoilRoot } from 'recoil'
-import { act, fireEvent, render, screen } from "@testing-library/react"
-import Formulario from "./Formulario"
+import { act, fireEvent, render, screen } from '@testing-library/react'
+import Formulario from './Formulario'
 
+// describe agrupa os erros 
 describe('o comportamento do Formulario.tsx', () => {
   test('participantes não podem ser adicionados se o input estiver vazio, ', () => {
 
@@ -39,7 +40,7 @@ describe('o comportamento do Formulario.tsx', () => {
     fireEvent.click(botao)
 
     expect(input).toHaveFocus()
-    expect(input).toHaveValue("")
+    expect(input).toHaveValue('')
   })
 
 
@@ -94,6 +95,7 @@ describe('o comportamento do Formulario.tsx', () => {
     let mensagemDeErro = screen.queryByRole('alert')
     expect(mensagemDeErro).toBeInTheDocument()
 
+    // quando uma ação for assíncrona, deve-se colocar ela em act
     act(() => {
       jest.runAllTimers()
     })
