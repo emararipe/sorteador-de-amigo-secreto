@@ -1,7 +1,7 @@
 import { useListaParticipantes } from '../state/hooks/useListaParticipantes'
 
-function Lista() {
-  const lista = useListaParticipantes()
+const Lista = () => {
+  const lista:string[] = useListaParticipantes()
   return (
     <ul>
       {lista.map((participante) => {
