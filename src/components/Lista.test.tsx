@@ -16,9 +16,11 @@ describe('uma lista vazia de participantes', () => {
     (useListaParticipantes as jest.Mock).mockReturnValue([])
   })
   test('deve ser renderizada sem elementos', () => {
-    render(<RecoilRoot>
-      <Lista />
-    </RecoilRoot>)
+    render(
+      <RecoilRoot>
+        <Lista />
+      </RecoilRoot>
+    )
 
     const itens = screen.queryAllByRole('listitem')
     expect(itens).toHaveLength(0)
@@ -34,9 +36,11 @@ describe('uma lista preenchida de participantes', () => {
   })
 
   test('deve ser renderizada sem elementos', () => {
-    render(<RecoilRoot>
-      <Lista />
-    </RecoilRoot>)
+    render(
+      <RecoilRoot>
+        <Lista />
+      </RecoilRoot>
+    )
 
     const itens = screen.queryAllByRole('listitem')
     expect(itens).toHaveLength(listaFake.length)

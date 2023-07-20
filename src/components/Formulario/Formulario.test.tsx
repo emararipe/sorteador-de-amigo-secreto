@@ -5,11 +5,11 @@ import Formulario from './Formulario'
 // describe agrupa os erros 
 describe('o comportamento do Formulario.tsx', () => {
   test('participantes não podem ser adicionados se o input estiver vazio, ', () => {
-
     render(
       <RecoilRoot>
         <Formulario />
-      </RecoilRoot>)
+      </RecoilRoot>
+    )
 
     const input = screen.getByPlaceholderText('Insira os nomes dos participantes')
 
@@ -25,7 +25,8 @@ describe('o comportamento do Formulario.tsx', () => {
     render(
       <RecoilRoot>
         <Formulario />
-      </RecoilRoot>)
+      </RecoilRoot>
+    )
 
     const input = screen.getByPlaceholderText('Insira os nomes dos participantes')
 
@@ -45,11 +46,12 @@ describe('o comportamento do Formulario.tsx', () => {
 
 
   test('a mensagem de erro para nomes duplicados', () => {
-
     render(
       <RecoilRoot>
         <Formulario />
-      </RecoilRoot>)
+      </RecoilRoot>
+    )
+
     const input = screen.getByPlaceholderText('Insira os nomes dos participantes')
     const botao = screen.getByRole('button')
     fireEvent.change(input, {
@@ -57,6 +59,7 @@ describe('o comportamento do Formulario.tsx', () => {
         value: 'Pessoa'
       }
     })
+
     fireEvent.click(botao)
     fireEvent.change(input, {
       target: {
@@ -77,7 +80,9 @@ describe('o comportamento do Formulario.tsx', () => {
     render(
       <RecoilRoot>
         <Formulario />
-      </RecoilRoot>)
+      </RecoilRoot>
+    )
+
     const input = screen.getByPlaceholderText('Insira os nomes dos participantes')
     const botao = screen.getByRole('button')
     fireEvent.change(input, {
@@ -91,6 +96,7 @@ describe('o comportamento do Formulario.tsx', () => {
         value: 'Pessoa'
       }
     })
+
     fireEvent.click(botao)
     let mensagemDeErro = screen.queryByRole('alert')
     expect(mensagemDeErro).toBeInTheDocument()
