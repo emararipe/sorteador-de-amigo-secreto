@@ -10,17 +10,18 @@ const Sorteio = () => {
   const [participanteDaVez, setParticipanteDaVez] = useState('')
   const [amigoSorteado, setAmigoSorteado] = useState('')
 
-  const sortear = (evento:React.FormEvent<HTMLFormElement>) => {
+  const sortear = (evento: React.FormEvent<HTMLFormElement>) => {
     evento.preventDefault()
-    const amigoSecreto = resultadoSorteio.get(participanteDaVez) 
-    if(amigoSecreto)
-    setAmigoSorteado(amigoSecreto)  
+
+    if (resultadoSorteio.has(participanteDaVez)) {
+      setAmigoSorteado(resultadoSorteio.get(participanteDaVez)!)
+    }
   }
 
   return (
     <section>
       <form onSubmit={evento => sortear(evento)}>
-        <select 
+        <select
           name='participanteDaVez'
           id='participanteDaVez'
           placeholder='Selecione o seu nome'
@@ -29,12 +30,13 @@ const Sorteio = () => {
           required
         >
           {lista.map((participante) => (
-            <option  key={participante}>{participante}</option>
+            <option key={participante}>{participante}</option>
           ))}
-        </select> 
-        <button type='submit'>Sortear</button>
+        </select>
+        <p>Clique em em sortear para ver quem é seu amigo secreto!</p>
+        <button>Sortear</button>
       </form>
-      <p>{amigoSorteado}</p>
+      {amigoSorteado && <p role='alert'>{amigoSorteado}</p>}
     </section>
   )
 }
