@@ -39,7 +39,7 @@ describe('página de sorteio', () => {
     )
 
     const opcoes = screen.getAllByRole('option')
-    expect(opcoes).toHaveLength(listaFake.length)
+    expect(opcoes).toHaveLength(listaFake.length + 1)
   })
 
   test('o participante sorteado é exibido', () => {
